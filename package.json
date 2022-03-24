@@ -3,10 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "analyze": "ANALYZE=true yarn build && serve .next -n",
-    "dev": "cross-env NODE_OPTIONS='--inspect' next dev",
-    "inspect": "NODE_OPTIONS='--inspect' next dev",
-    "build": "yarn lingui && next build",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
     "lingui": "lingui extract --clean --overwrite && lingui compile",
     "circular": "madge --circular src --extensions ts,tsx,js,jsx",
@@ -21,7 +19,6 @@
     "e2e:run": "yarn jest --testPathPattern=test/e2e --runInBand",
     "e2e:safe": "wait-on -l http://localhost:3000 && yarn e2e:run",
     "e2e": "concurrently -k -s first -n \"app,e2e\" \"yarn dev\" \"yarn e2e:safe\"",
-    "postinstall": "yarn lingui"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
